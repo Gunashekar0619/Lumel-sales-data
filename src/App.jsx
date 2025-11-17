@@ -29,7 +29,9 @@ function App() {
     setRowData(updatedRowDat);
   }
 
-  const handleClickChange = (parentId, childId, onPercentage) =>  {    
+  const handleClickChange = (parentId, childId, onPercentage) =>  {   
+    console.log(onPercentage);
+     
     const updatedRowData = rowData.map(item => {
       if (item.parentId === parentId && item.childId === childId) {
         const calculatedValues = getCalculatedValue(item, onPercentage);

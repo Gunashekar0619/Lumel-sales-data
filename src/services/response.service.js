@@ -1,3 +1,5 @@
+import { getValueOfpercentage } from "../utils";
+
 export const prepareRowData = (rows) => {
     const formatedRows = [];
     rows.forEach(parentData => {
@@ -40,7 +42,7 @@ export const getCalculatedValue = (item, onPercentage) => {
     let differenceWithOriginalPercent;
 
     if (onPercentage) {
-        calculatedValue = getValueOfpercentage(baseValue, inputVal);
+        calculatedValue = item?.value + getValueOfpercentage(baseValue, inputVal);
         differenceWithOriginal = calculatedValue - item.originalValue;
         differenceWithOriginalPercent = item.originalValue ? (differenceWithOriginal / item.originalValue) * 100 : 0;
     } else {
